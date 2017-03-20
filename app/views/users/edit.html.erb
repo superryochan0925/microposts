@@ -18,7 +18,13 @@
             
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-            
+      
+      <%= f.label :location %>
+      <%= f.text_field :location, class: 'form-control' %> 
+      
+      <%= f.label :gender %>
+      <%= f.select :gender, ["男", "女"], {include_blank: "ー選択して下さいー"}, {class: 'form-control'} %>
+      
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
   </div>
