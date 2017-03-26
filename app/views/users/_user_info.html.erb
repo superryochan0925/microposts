@@ -1,0 +1,15 @@
+<% @user ||= current_user %>
+<section class="user_info">
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
+  <a href="<%= followers_user_path(@user) %>">
+      <strong id ="followers" class="show_follow">
+        <%= @user.following_relationships.count %>
+      </strong>followers</a><br>
+  <a href="<%= followings_user_path(@user) %>">
+    <strong id ="followings" class="show_follow">
+        <%= @user.follower_relationships.count %>
+    </strong>followings</a>
+</section>
