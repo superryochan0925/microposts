@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show # 追加
     @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
+    @favorites = Favorite.where("user_id = ?", @user)
   end
 
   
@@ -48,6 +49,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.follower_users
     render 'show_follow'
+  end
+  
+  def favorites
+    @title = "Favorites"
+    @user = User.find(params[:id])
+    @microposts = @user.favorite_microposts
+    render 'show'
   end
 
   private

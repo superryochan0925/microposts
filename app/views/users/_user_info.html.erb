@@ -11,5 +11,6 @@
   <a href="<%= followings_user_path(@user) %>">
     <strong id ="followings" class="show_follow">
         <%= @user.following_relationships.count %>
-    </strong>followings</a>
+    </strong>followings</a><br>
+  <%= link_to 'favorites', favorites_user_path %>
 </section>
